@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMIM PANEL PASS - paid panel TAMIM MODZ</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .eclipse {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #000 40%, #222 60%, #000);
+      box-shadow: 0 0 60px 10px #444;
+      margin: 0 auto 40px;
+    }
+
+    h1 {
+      color: #ff4ffb;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      color: #00bfff;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 300px;
+      background: transparent;
+      border: 1px solid #00ffff;
+      color: #00ffff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    button {
+      background: transparent;
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      margin: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 15px #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="eclipse"></div>
+  <h1>TAMIM PANEL PASS</h1>
+  <h2>paid panel pass</h2>
+
+  <input type="text" id="keyBox" placeholder="- Press Generate -" readonly><br>
+
+  <button onclick="generateKey()">GENERATE KEY</button>
+  <button onclick="copyKey()">COPY KEY</button>
+
+  <script>
+    function generateKey() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let key = '';
+      for (let i = 0; i < 20; i++) {
+        key += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById('keyBox').value = key;
+    }
+
+    function copyKey() {
+      const keyBox = document.getElementById('keyBox');
+      if (keyBox.value.trim() === '') {
+        alert('Please generate a key first!');
+        return;
+      }
+      keyBox.select();
+      navigator.clipboard.writeText(keyBox.value);
+      alert('Key copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
